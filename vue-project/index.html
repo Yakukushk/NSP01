@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Изучение Vue.js</title>
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <div id="app">
+   
+  </div>
+  <!-- <div id="iname">
+    <h2>Hello, {{name}}</h2>
+    <input type="text" v-model="name">
+    <button @click="name = ''" :disabled="name.lenght === 0">X</button>
+  </div> -->
+  
+  <script>
+// import { createApp } from 'vue'
+
+const { createApp } = Vue
+var rootComponent = {
+  template: ` <button @click="count++">{{ count }}</button>
+  <div v-show="name.lenght > 0"></div> 
+  <h2>Hello, {{name}}</h2>
+    <input type="text" v-model="name">
+    <button @click="name = ''" :disabled="name.lenght === 0">X</button>`    ,
+  data() {
+    return {
+      count: 0,
+      name: ''
+    }
+  }
+};
+
+ var app = createApp(rootComponent);
+app.mount('#app');
+
+
+
+
+// const { newApp } = Vue
+
+//  const iname = newApp({
+//    data() {
+//        return {
+//         name: ''
+//        }
+//    }
+//  });
+//  iname.mount('#iname');
+  </script>
+  
+</body>
+</html>

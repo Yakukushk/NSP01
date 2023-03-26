@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/vue-project/css/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Phone Store</title>
+</head>
+<body>
+    <!-- <div class="modal fade" v-if ="modalVisibility" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Paying process</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+              @click="modalVisibility = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" v-if="modalVisibility = false">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="modal-backdrop fade show" v-if="modalVisibility"></div> -->
+   <div class="container pt-5" id="app">
+    <div class="row m-lg-3">
+        <div class="col">
+            <h1>Phones application</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="search">Find your phone</label>
+                <input 
+                type="text" 
+                class="form-control"
+                 id="search" 
+                 placeholder="Name, Model"
+                 v-model="search">  {{search}}
+            </div>
+            <hr>
+            <ul class="list-group">
+                <li v-for="(phone, index) of filterPhone" class="list-group-item list-group-item-action pointer" v-on:click="selectPhone(index)" :class="{'active' : selectPhoneIndex === index}">{{phone.name}} - {{phone.capacity}} - {{phone.color}}</li>
+
+                <!-- <li class="list-group-item list-group-item-action pointer">New Model_2</li>
+                <li class="list-group-item list-group-item-action pointer">New Model_3</li> -->
+            </ul>
+        </div>
+        <div class="col-md-8 pt-2">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>{{phone.name}}</h2>
+                    <img  v-bind:src="phone.image" v-bind:alt="phone.name" class="rounded detailed-phone-img">
+                </div>  
+                <div class="col-md-7 pt-2">
+                    <h5>Phone Details</h5>
+                    <ul>
+                        <li class="list-group-item">Model - <strong>{{phone.name}}</strong></li>
+                        <li class="list-group-item">Color - <strong>{{phone.color}}</strong></li>
+                        <li class="list-group-item">Price - <strong>{{phone.price}} zł</strong></li></li>
+                        <li class="list-group-item">Capacity - <strong>{{phone.capacity}}</strong></li>
+
+                       
+                        
+                    </ul>
+                    <div class="phone-block">
+                    <p class="el-icon-information"><a href="https://www.apple.com/pl/store" v-if="phoneVisibility">Apple</a></p>
+                    </div>
+                    <button class="btn btn-outline-success mr-3" @click="phoneVisibility = !phoneVisibility"
+                    >{{phoneBtnText}}</button>
+                    <a href="/vue-project/buy.html"><button class="btn btn-primary" @click="modalVisibility = true">Buy</button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+   
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+     <script src="/vue-project/js/app.js"></script>
+</body>
+</html>

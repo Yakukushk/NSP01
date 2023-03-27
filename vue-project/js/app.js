@@ -6,6 +6,16 @@ return{
     name, price, capacity, color, site, image
 }
 }
+function Output_Info(name, card, ExpMonth, ExpYear, CVV){
+    return{
+        name, card, ExpMonth, ExpYear, CVV
+    }
+}
+var check = Output_Info();
+function Show_Receipt(){
+    alert("Thank you for payment");
+}
+
 
 const phone = [
     Show_Info("IPhone 14", 2000, "256GB", "White", 'https://www.apple.com/pl/store', '/vue-project/img/Iphone 14.jpg'),
@@ -20,7 +30,8 @@ data: {
     selectPhoneIndex: 0,
     phoneVisibility: false,
     search: '',
-    modalVisibility: false
+    modalVisibility: false, 
+    buyVisibility: false
 }, 
 methods: {
     selectPhone: function(index) {
@@ -28,11 +39,24 @@ methods: {
             console.log("Clicked", index);
             this.phone = phone[index];
             this.selectPhoneIndex = index;
-    }
+    }, 
+    showAlert() {
+        if(check != null){
+        alert('Thank for payment');
+        } else {
+            alert('Input Detail');
+        }
+      }
+      
+    
+
 }, 
 computed: {
     phoneBtnText(){
         return this.phoneVisibility ? 'Hide Phone' : 'Show phone'
+    },
+    selectReceipt(){
+        Show_Receipt();
     },
     filterPhone(){
         var self = this;

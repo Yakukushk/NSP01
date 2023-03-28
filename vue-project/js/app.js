@@ -59,7 +59,7 @@ computed: {
         Show_Receipt();
     },
     filterPhone(){
-        var self = this;
+      var self = this;
       const newFilter = this.phones.filter(function(phone){
         return phone.name.indexOf(self.search) > -1 || phone.color.indexOf(this.search) > -1
       })

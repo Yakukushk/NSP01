@@ -18,9 +18,9 @@ function Show_Receipt(){
 
 
 const phone = [
-    Show_Info("IPhone 14", 2000, "256GB", "White", 'https://www.apple.com/pl/store', '/vue-project/img/Iphone 14.jpg'),
-    Show_Info("IPhone 13", 1500, "256GB", "White", 'https://www.apple.com/pl/store', '/vue-project/img/Iphone 13.jpg'),
-    Show_Info("IPhone 12", 1000, "256GB", "Black", 'https://www.apple.com/pl/store', '/vue-project/img/Iphone 12.jpg')
+    Show_Info("IPhone 14", 2000, "256GB", "White", 'https://www.apple.com/pl/store', './img/Iphone 14.jpg'),
+    Show_Info("IPhone 13", 1500, "256GB", "White", 'https://www.apple.com/pl/store', './img/Iphone 13.jpg'),
+    Show_Info("IPhone 12", 1000, "256GB", "Black", 'https://www.apple.com/pl/store', './img/Iphone 12.jpg')
 ]
 new Vue({
 el : '#app',
@@ -32,6 +32,7 @@ data: {
     search: '',
     modalVisibility: false, 
     buyVisibility: false
+    
 }, 
 methods: {
     selectPhone: function(index) {
@@ -68,4 +69,5 @@ computed: {
     }
 }
 })
+
 

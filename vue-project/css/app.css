@@ -6,17 +6,7 @@ body {
 	height: 100vh;
 }
 
-@keyframes gradient {
-  0%{
-    background-position: 0% 50%;
-  }
-  50% {
-    background-image: 100% 50%;
-  }
-  100%{
-    background-position: 0% 50%;
-  }
-}
+
 .detailed-phone-img{
     height: 250px;
     border-radius: 10px;

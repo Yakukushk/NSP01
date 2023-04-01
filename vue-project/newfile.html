@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script type="text/javascript" src="vue.min.js"></script>
+    <script type="text/javascript" src="../zoomOnHover.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/app.css"/>
+  </head>
+  <body>
+    <div id="app">
+      <h2>normal zoom</h2>
+      <div style="width:400px">
+        <zoom-on-hover img-normal="image.jpg"></zoom-on-hover>
+      </div>
+      <h2>double zoom</h2>
+      <div style="width:400px">
+        <zoom-on-hover img-normal="image.jpg" :scale="2"></zoom-on-hover>
+      </div>
+      <h2>disabled</h2>
+      <div style="width:400px">
+        <zoom-on-hover img-normal="image.jpg" :disabled="true"></zoom-on-hover>
+      </div>
+    </div>
+ 
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+        
+         <script type="module" src="./js/app.js"></script>
+         
+  </body>
+</html>

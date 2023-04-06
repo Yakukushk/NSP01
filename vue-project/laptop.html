@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <title>Laptop Store</title>
+</head>
+<body>
+<header>
+    <div class="header">
+        <a href="./headphone.html" class="logo">Laptop application</a>
+        <div class="header-right">
+            <a href=headphone.html>Headphones</a>
+            <a href="./main.html">Phone</a>
+            <a href="./laptop.html">Laptop</a>
+        </div>
+    </div>
+</header>
+<div class="container pt-5" id="app">
+    <div class="row m-lg-3">
+        <!-- <div class="col">
+            <h1>Phones application</h1>
+        </div> -->
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <h2 for="search">Find your phone</h2>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="search"
+                        placeholder="Name, Model"
+                        v-model="search">  {{search}}
+            </div>
+            <hr>
+            <ul class="list-group">
+                <li v-for="(laptop, index) of filterPhone" class="list-group-item list-group-item-action pointer" v-on:click="selectPhone(index)" :class="{'active' : selectPhoneIndex === index}">{{laptop.name}}</li>
+
+
+            </ul>
+        </div>
+        <div class="col-md-8 pt-2">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>{{laptop.name}}</h2>
+
+
+
+
+
+
+                    <img  v-bind:src="laptop.image" v-bind:alt="laptop.name" class="rounded detailed-phone-img"
+                          style="object-fit: contain; width: 100%; height: 100%;"
+                    >
+
+
+
+
+
+                </div>
+                <div class="col-md-7 pt-2">
+                    <!-- <h5>Phone Details</h5> -->
+                    <ul>
+                        <li class="list-group-item">Model - <strong>{{laptop.name}}</strong></li>
+                        <li class="list-group-item">Color - <strong>{{laptop.color}}</strong></li>
+                        <li class="list-group-item">Price - <strong>{{laptop.price}} zł</strong></li>
+                        <li class="list-group-item">Capacity - <strong>{{laptop.capacity}}</strong></li>
+                        <li class="list-group-item">Capacity - <strong>{{laptop.system}}</strong></li>
+
+
+
+                    </ul>
+                    <div class="phone-block">
+                        <p class="el-icon-information"><a href="https://www.apple.com/pl/store" v-if="phoneVisibility">Apple</a></p>
+                    </div>
+                    <button class="btn btn-outline-success mr-3" @click="phoneVisibility = !phoneVisibility"
+                    >{{phoneBtnText}}</button>
+                    <a href="./buy.html"><button class="btn btn-primary" @click="modalVisibility = true">Buy</button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer>
+    <!-- try to create class for content such as some texts -->
+    <div class="footer-content">
+        <h3>Phone Application</h3>
+        <p>A simple online shopping site with different techniques is built based on vue/js/css/html</p>
+
+    </div>
+    <!-- Footer-bottom for content with button and some text -->
+    <div class="footer-bottom">
+        <p> 2023 &copy; <a href="https://github.com/Yakukushk">Daniil Liubko</a>  </p>
+        <div class="footer-menu">
+            <ul class="f-menu">
+                <li><a href="">HeadPhones</a></li>
+                <li><a href="main.html">Phone</a></li>
+                <li><a href="">Laptop</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+
+<script type="module" src="./laptop.js"></script>
+</body>
+</html>

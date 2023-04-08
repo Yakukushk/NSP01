@@ -72,7 +72,7 @@
                         <li class="list-group-item">Color - <strong>{{laptop.color}}</strong></li>
                         <li class="list-group-item">Price - <strong>{{laptop.price}} zł</strong></li>
                         <li class="list-group-item">Capacity - <strong>{{laptop.capacity}}</strong></li>
-                        <li class="list-group-item">Capacity - <strong>{{laptop.system}}</strong></li>
+                        <li class="list-group-item">System - <strong>{{laptop.system}}</strong></li>
 
 
 
@@ -109,7 +109,13 @@
             </ul>
         </div>
     </div>
-
+    <div class="loader"></div>
+    <script>
+        window.addEventListener("load", function (){
+            var loader = document.querySelector(".loader");
+            loader.className += "hidden";
+        })
+    </script>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>

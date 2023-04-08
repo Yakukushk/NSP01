@@ -31,18 +31,18 @@ data: {
     selectPhoneIndex: 0,
     phoneVisibility: false,
     search: '',
-    modalVisibility: false, 
+    modalVisibility: false,
     buyVisibility: false
-    
-}, 
+
+},
 
 methods: {
     selectPhone: function(index) {
-        
+
             console.log("Clicked", index);
             this.phone = phone[index];
             this.selectPhoneIndex = index;
-    }, 
+    },
     showAlert() {
         if(check != null){
         alert('Thank for payment');
@@ -50,10 +50,10 @@ methods: {
             alert('Input Detail');
         }
       }
-      
-    
 
-}, 
+
+
+},
 computed: {
     phoneBtnText(){
         return this.phoneVisibility ? 'Hide Phone' : 'Show phone'
@@ -64,10 +64,10 @@ computed: {
     filterPhone(){
       var self = this;
        const newFilter = this.phones.filter(function(phone){
-        return phone.name.indexOf(self.search) > -1 
+        return phone.name.indexOf(self.search) > -1
       })
       return newFilter
-       
+
     }
 }
 })

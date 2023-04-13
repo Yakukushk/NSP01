@@ -176,7 +176,37 @@ display: block;
   .header-right {
     float: right;
   }
-  
+
+  .hwrap{
+    overflow: hidden;
+    background: #eee;
+  }
+  .hmove{
+    display: flex;
+  }
+  .hitem{
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+    /*padding: 10px;*/
+    text-align: center;
+  }
+  .hitem a{
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+@keyframes tickerh {
+  0% { transform: translate3d(100%, 0, 0); }
+  100% { transform: translate3d(-400%, 0, 0); }
+}
+.hmove { animation: tickerh linear 40s infinite; }
+.hmove:hover { animation-play-state: paused; }
  
  
   

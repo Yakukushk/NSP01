@@ -26,6 +26,7 @@ const phone = [
 new Vue({
 el : '#app',
 data: {
+
     phones: phone,
     phone: phone[0],
     selectPhoneIndex: 0,

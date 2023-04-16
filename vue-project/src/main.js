@@ -1,77 +1,55 @@
-const app = Vue.createApp({
-    data() {
-        return {
-            phones: [
-                {
-                    name: "IPhone 14",
-                    price: 2000,
-                    capacity: "256GB",
-                    color: "White",
-                    site: "https://www.apple.com/pl/store",
-                    image: "./img/Iphone 14.jpg",
-                    image2: "./img/Iphone 13.jpg",
-                    image3: "./img/Iphone 12.jpg"
-                },
-                {
-                    name: "IPhone 13",
-                    price: 1500,
-                    capacity: "256GB",
-                    color: "White",
-                    site: "https://www.apple.com/pl/store",
-                    image: "./img/Iphone 13.jpg",
-                    image2: "./img/Iphone 13.jpg",
-                    image3: "./img/Iphone 12.jpg"
-                },
-                {
-                    name: "IPhone 12",
-                    price: 1000,
-                    capacity: "256GB",
-                    color: "Black",
-                    site: "https://www.apple.com/pl/store",
-                    image: "./img/Iphone 12.jpg",
-                    image2: "./img/Iphone 13.jpg",
-                    image3: "./img/Iphone 12.jpg"
-                }
-            ],
-            phone: null,
-            selectPhoneIndex: 0,
-            phoneVisibility: false,
-            search: "",
-            modalVisibility: false,
-            buyVisibility: false,
-            check: null
-        };
-    },
-    methods: {
-        selectPhone(index) {
-            console.log("Clicked", index);
-            this.phone = this.phones[index];
-            this.selectPhoneIndex = index;
-        },
-        showAlert() {
-            if (this.check !== null) {
-                alert("Thank you for payment");
-            } else {
-                alert("Input Detail");
-            }
-        }
-    },
-    computed: {
-        phoneBtnText() {
-            return this.phoneVisibility ? "Hide Phone" : "Show phone";
-        },
-        selectReceipt() {
-            this.showReceipt();
-        },
-        filterPhone() {
-            return this.phones.filter(phone =>
-                phone.name.toLowerCase().includes(this.search.toLowerCase())
-            );
-        }
-    },
-    mounted() {
-        this.phone = this.phones[this.selectPhoneIndex];
-    }
-});
+function image_zoom(imgID, resultID){
+    var img, lens, result, cx, cy;
+    img = document.getElementById(imgID);
+    result = document.getElementById(resultID);
+    /*create lens:*/
+    lens = document.createElement("DIV");
+    lens.setAttribute("class", "img-zoom-lens");
+    /*insert lens:*/
+    img.parentElement.insertBefore(lens, img);
+    /*calculate the ratio between result DIV and lens:*/
+    cx = result.offsetWidth / lens.offsetWidth;
+    cy = result.offsetHeight / lens.offsetHeight;
+    /*set background properties for the result DIV:*/
+    result.style.backgroundImage = "url('" + img.src + "')";
+    result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+    /*execute a function when someone moves the cursor over the image, or the lens:*/
+    lens.addEventListener("mousemove", moveLens);
+    img.addEventListener("mousemove", moveLens);
+    /*and also for touch screens:*/
+    lens.addEventListener("touchmove", moveLens);
+    img.addEventListener("touchmove", moveLens);
+    function moveLens(e) {
+        var pos, x, y;
+        /*prevent any other actions that may occur when moving over the image:*/
+        e.preventDefault();
+        /*get the cursor's x and y positions:*/
+        pos = getCursorPos(e);
+        /*calculate the position of the lens:*/
+        x = pos.x - (lens.offsetWidth / 2);
+        y = pos.y - (lens.offsetHeight / 2);
+        /*prevent the lens from being positioned outside the image:*/
+        if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+        if (x < 0) {x = 0;}
+        if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+        if (y < 0) {y = 0;}
+        /*set the position of the lens:*/
+        lens.style.left = x + "px";
+        lens.style.top = y + "px";
 
-app.mount("#app");
+    }
+    function getCursorPos(e) {
+        var a, x = 0, y = 0;
+        e = e || window.event;
+        /*get the x and y positions of the image:*/
+        a = img.getBoundingClientRect();
+        /*calculate the cursor's x and y coordinates, relative to the image:*/
+        x = e.pageX - a.left;
+        y = e.pageY - a.top;
+        /*consider any page scrolling:*/
+        x = x - window.pageXOffset;
+        y = y - window.pageYOffset;
+        return {x : x, y : y};
+    }
+
+}

@@ -1,99 +1,128 @@
-h2 {
-    text-align: center;
-    display: block;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 40px;
-
-}
-body {
-    display: block;
-    font-style: normal;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+body{
+  height: 100%;
+  width: 100%;
+  left:0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background: linear-gradient(#cacdd2,#ffffff,#d4d4d4,#f2f2f2,#eeeeee,#a1c4fd);
+  background-size: 1800% 1800%;
 }
 .row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -16px;
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background: linear-gradient(#cacdd2,#ffffff,#d4d4d4,#f2f2f2,#eeeeee,#a1c4fd);
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #a1c4fd;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+  color: #282828;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 20%;
+  align-content: center;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+  object-position: center;
+}
+
+.btn:hover {
+  background-color: #d4d4d4;
+}
+
+/*span.price {*/
+/*  float: right;*/
+/*  color: grey;*/
+/*}*/
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
   }
-  
   .col-25 {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-  }
-  
-  .col-50 {
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-  }
-  
-  .col-75 {
-    -ms-flex: 75%; /* IE10 */
-    flex: 75%;
-  }
-  
-  .col-25,
-  .col-50,
-  .col-75 {
-    padding: 0 16px;
-  }
-  
-  .container {
-    background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-  }
-  
-  input[type=text] {
-    width: 100%;
     margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
   }
-  
-  label {
-    margin-bottom: 10px;
-    display: block;
-  }
-  
-  .icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
-  }
-  
-  .btn {
-    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-  }
-  
-  .btn:hover {
-    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
-  }
-  
-  span.price {
-    float: right;
-    color: grey;
-  }
-  .fa {
-    height: 20px;
-  }
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-  @media (max-width: 800px) {
-    .row {
-      flex-direction: column-reverse;
-    }
-    .col-25 {
-      margin-bottom: 20px;
-    }
-  }
+}
+
+
+/*@-webkit-keyframes rainbow {*/
+/*  0%{background-position:0% 82%}*/
+/*  50%{background-position:100% 19%}*/
+/*  100%{background-position:0% 82%}*/
+/*}*/
+/*@-moz-keyframes rainbow {*/
+/*  0%{background-position:0% 82%}*/
+/*  50%{background-position:100% 19%}*/
+/*  100%{background-position:0% 82%}*/
+/*}*/
+/*@-o-keyframes rainbow {*/
+/*  0%{background-position:0% 82%}*/
+/*  50%{background-position:100% 19%}*/
+/*  100%{background-position:0% 82%}*/
+/*}*/
+/*@keyframes rainbow {*/
+/*  0%{background-position:0% 82%}*/
+/*  50%{background-position:100% 19%}*/
+/*  100%{background-position:0% 82%}*/
+/*}*/

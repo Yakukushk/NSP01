@@ -4,6 +4,7 @@
     box-sizing: border-box;
     position: relative;
 }
+
 .img-zoom-lens {
   position: absolute;
   border: 1px solid #d4d4d4;
